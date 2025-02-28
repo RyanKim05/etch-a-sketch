@@ -1,11 +1,61 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>etch-a-sketch</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="button">
+        <button>Change size</button>
+    </div>
+    <div class="container"></div>
+
+    <script>
+        //Creating a 16x16 squares of divs
+        const containerPtr = document.querySelector(".container");
+
+        for(let i=0;i<16;i++){
+            for(let j=0;j<16;j++){
+                var square = document.createElement("div");
+                square.style.height = "50px";
+                square.style.width = "50px";
+                containerPtr.appendChild(square);
+
+                square.addEventListener("mouseover",(event)=>{
+                    event.target.style.backgroundColor = "black";
+                });
+            }
+        }
+
+        document.querySelector("button").addEventListener("click",()=>{
+            let userInp = prompt("Enter new size up to 100:");
+
+            while(userInp>100){
+                userInp=prompt("Size needs to be less than 100");
+            }
+            while(containerPtr.firstChild){
+                containerPtr.removeChild(containerPtr.firstChild);
+            }
+            let pixels = userInp/16;
+            for(let i=0;i<userInp;i++){
+                for(let j=0;j<userInp;j++){
+                    var square = document.createElement("div");
+                    square.style.height = pixels.toString()+"px";
+                    square.style.width = pixels.toString()+"px";
+                    containerPtr.appendChild(square);
+
+                    square.addEventListener("mouseover",(event)=>{
+                    event.target.style.backgroundColor = "black";
+                });
+            }
+        }
+        });
+
+
+    </script>
 </body>
 </html>

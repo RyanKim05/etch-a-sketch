@@ -1,0 +1,18 @@
+/*
+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
+*/
+
+.container{
+    display: flex;
+    border-style: solid;
+    width: 800px;
+    height: 800px;
+    flex-wrap: wrap;
+    margin:auto;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
